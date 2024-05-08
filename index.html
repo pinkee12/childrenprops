@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic List Rendering</title>
+</head>
+<body>
+  <div id="root"> Hello from dom</div>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    let root=document.getElementById("root");
+    let reactRoot=ReactDOM.createRoot(root);
+
+    function Gallery({children}){
+      return(
+        <>
+        <div className="gallery-grid">{children}</div>
+        
+      </>
+
+      );
+      
+    }
+    function Image({src}) {
+  return (
+    <img src={src} alt="Gallery Image"/>
+  );
+}
+
+    function App(){
+      return (
+        <>
+        <Gallery>
+          <Image src="https://th.bing.com/th?id=OIP.vggFhcDaZAZ0BLI1MKgUzgHaD-&w=340&h=183&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" />
+          <Image src="https://th.bing.com/th?id=OIP.PYipJ_hSncugM2SwnZitvgHaEK&w=333&h=187&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" />
+         </Gallery>
+        </>
+      )
+    }
+    reactRoot.render(<App/>);
+    
+  </script>
+</body>
+</html>
